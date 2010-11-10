@@ -2,11 +2,7 @@
 // To Do List
 //----------------------------------------
 // - Finish PIN Inquiry System
-// -- Prompt PIN for payday and
-// 	account main menu.
 // -- Prompt PIN for withdraw confirmation
-// -- Add change PIN menu options
-// - Setup Change PIN System
 // - Change Account Number
 //----------------------------------------
 
@@ -14,12 +10,9 @@
    import java.util.Random;
    public class advancedATM {
       public static void main(String[] args) {
-         String balInput;
-         double balance;
-         String balRegSavInput;
-         double balanceRegSav;
-         int log = 1;
-         int tempnum;
+         int log = 1, comfPin;
+         double balance, balanceRegSav;
+         String balInput, balRegSavInput;
       	
          System.out.println("***************************************************************************************"
              + "**********************************"
@@ -31,211 +24,11 @@
              + "-----------------------");
          
          Random generator = new Random();
-      		 
-         String specPinIn = JOptionPane.showInputDialog("Please create a PIN within the range of 1,000 to 9,999"
-            + "\nCreate a PIN:");
-         int specPin = 0;
       	
-         try {
-            specPin = Integer.parseInt(specPinIn);
-         }
-            catch (NumberFormatException ex) {
-               System.out.println(log + "\t:\t\t\t" + "Unable to create PIN as decimal: "+ex.getMessage());
-					log++;
-            }
-            catch (NullPointerException ex) {
-               System.out.println(log + "\t:\t\t\t" + "Nothing was entered: " +ex.getMessage());
-					log++;
-            }
-      	
-         while (specPin < 1000) {
-            System.out.println(log + "\t:\t\t\t" + "Your PIN is too small! Please choose one from 1,000 to 9,999.");
-            log++;  	
-            specPinIn = JOptionPane.showInputDialog("PIN is too small!!"
-               + "\nPlease create a PIN within the range of 1,000 to 9,999"
-               + "\nCreate a PIN:");
-            specPin = 0;
-         
-            try {
-               specPin = Integer.parseInt(specPinIn);
-            }
-               catch (NumberFormatException ex) {
-                  System.out.println(log + "\t:\t\t\t" + "Unable to create PIN as decimal: "+ex.getMessage());
-						log++;
-               }
-               catch (NullPointerException ex) {
-                  System.out.println(log + "\t:\t\t\t" + "Nothing was entered: " +ex.getMessage());
-						log++;
-               }
-         }
-      	
-         while (specPin > 9999) {
-            System.out.println(log + "\t:\t\t\t" + "Your PIN is too big! Please choose one from 1,000 to 9,999.");
-            log++;  	
-            specPinIn = JOptionPane.showInputDialog("PIN is too big!!"
-               + "\nPlease create a PIN within the range of 1,000 to 9,999"
-               + "\nCreate a PIN:");
-            specPin = 0;
-         
-            try {
-               specPin = Integer.parseInt(specPinIn);
-            }
-               catch (NumberFormatException ex) {
-                  System.out.println(log + "\t:\t\t\t" + "Unable to create PIN as decimal: "+ex.getMessage());
-						log++;
-               }
-               catch (NullPointerException ex) {
-                  System.out.println(log + "\t:\t\t\t" + "Nothing was entered: " +ex.getMessage());
-						log++;
-               }
-            while (specPin < 1000) {
-               System.out.println(log + "\t:\t\t\t" + "Your PIN is too small! Please choose one from 1,000 to 9,999.");
-               log++;  	
-               specPinIn = JOptionPane.showInputDialog("PIN is too small!!"
-                  + "\nPlease create a PIN within the range of 1,000 to 9,999"
-                  + "\nCreate a PIN:");
-               specPin = 0;
-            
-               try {
-                  specPin = Integer.parseInt(specPinIn);
-               }
-                  catch (NumberFormatException ex) {
-                     System.out.println(log + "\t:\t\t\t" + "Unable to create PIN as decimal: "+ex.getMessage());
-							log++;
-                  }
-                  catch (NullPointerException ex) {
-                     System.out.println(log + "\t:\t\t\t" + "Nothing was entered: " +ex.getMessage());
-							log++;
-                  }
-            }
-         }
-      	
-         String comfPinIn = JOptionPane.showInputDialog("Comfirm PIN:");
-         int comfPin = 0;
-      	
-         try {
-            comfPin = Integer.parseInt(comfPinIn);
-         }
-            catch (NumberFormatException ex) {
-               System.out.println(log + "\t:\t\t\t" + "Unable to create PIN as decimal: "+ex.getMessage());
-					log++;
-            }
-            catch (NullPointerException ex) {
-               System.out.println(log + "\t:\t\t\t" + "Nothing was entered: " +ex.getMessage());
-					log++;
-            }
-      	
-         while (specPin != comfPin) {
-            System.out.println(log + "\t:\t\t\t" + "Your PINs do NOT MATCH!");
-            log++;  	
-            specPinIn = JOptionPane.showInputDialog("The PIN entered does NOT Match!!"
-                                       + "\nPlease create a PIN within the range of 1,000 to 9,999"
-                                       + "\nCreate a PIN:");
-            specPin = 0;
-            
-            try {
-               specPin = Integer.parseInt(specPinIn);
-            }
-               catch (NumberFormatException ex) {
-                  System.out.println(log + "\t:\t\t\t" + "Unable to create PIN as decimal: "+ex.getMessage());
-						log++;
-               }
-               catch (NullPointerException ex) {
-                  System.out.println(log + "\t:\t\t\t" + "Nothing was entered: " +ex.getMessage());
-						log++;
-               }
-                        
-            while (specPin < 1000) {
-               System.out.println(log + "\t:\t\t\t" + "Your PIN is too small! Please choose one from 1,000 to 9,999.");
-               log++;  	
-               specPinIn = JOptionPane.showInputDialog("PIN is too small!!"
-                                       + "\nPlease create a PIN within the range of 1,000 to 9,999"
-                                       + "\nCreate a PIN:");
-               specPin = 0;
-            
-               try {
-                  specPin = Integer.parseInt(specPinIn);
-               }
-                  catch (NumberFormatException ex) {
-                     System.out.println(log + "\t:\t\t\t" + "Unable to create PIN as decimal: "+ex.getMessage());
-							log++;
-                  }
-                  catch (NullPointerException ex) {
-                     System.out.println(log + "\t:\t\t\t" + "Nothing was entered: " +ex.getMessage());
-							log++;
-                  }
-            }
-                              
-            while (specPin > 9999) {
-               System.out.println(log + "\t:\t\t\t" + "Your PIN is too big! Please choose one from 1,000 to 9,999.");
-               log++;  	
-               specPinIn = JOptionPane.showInputDialog("PIN is too big!!"
-                                       + "\nPlease create a PIN within the range of 1,000 to 9,999"
-                                       + "\nCreate a PIN:");
-               specPin = 0;
-            
-               try {
-                  specPin = Integer.parseInt(specPinIn);
-               }
-                  catch (NumberFormatException ex) {
-                     System.out.println(log + "\t:\t\t\t" + "Unable to create PIN as decimal: "+ex.getMessage());
-							log++;
-                  }
-                  catch (NullPointerException ex) {
-                     System.out.println(log + "\t:\t\t\t" + "Nothing was entered: " +ex.getMessage());
-							log++;
-                  }
-               while (specPin < 1000) {
-                  System.out.println(log + "\t:\t\t\t" + "Your PIN is too small! Please choose one from 1,000 to 9,999.");
-                  log++;  	
-                  specPinIn = JOptionPane.showInputDialog("PIN is too small!!"
-                     + "\nPlease create a PIN within the range of 1,000 to 9,999"
-                     + "\nCreate a PIN:");
-                  specPin = 0;
-               
-                  try {
-                     specPin = Integer.parseInt(specPinIn);
-                  }
-                     catch (NumberFormatException ex) {
-                        System.out.println(log + "\t:\t\t\t" + "Unable to create PIN as decimal: "+ex.getMessage());
-								log++;
-                     }
-                     catch (NullPointerException ex) {
-                        System.out.println(log + "\t:\t\t\t" + "Nothing was entered: " +ex.getMessage());
-								log++;
-                     }
-               }
-            }
-                     	
-            comfPinIn = JOptionPane.showInputDialog("Comfirm PIN:");
-            comfPin = 0;
-         
-            try {
-               comfPin = Integer.parseInt(comfPinIn);
-            }
-               catch (NumberFormatException ex) {
-                  System.out.println(log + "\t:\t\t\t" + "Unable to create PIN as decimal: "+ex.getMessage());
-						log++;
-               }
-               catch (NullPointerException ex) {
-                  System.out.println(log + "\t:\t\t\t" + "Nothing was entered: " +ex.getMessage());
-						log++;
-               }
-         }
-      	
-         JOptionPane.showMessageDialog(null, "You have successfully created a PIN!"
-            + "\n\nYour pin is:" + " " + comfPin
-            + "\nWrite this down in a safe location! It will not be displayed again!");
-      	
-         String pin = "0000".replaceAll("[0]", "*");
-         System.out.println(log + "\t:\t\t\t" + "You have successfully set your PIN:" + " " + pin);
-         log++;  	
-      	
-         int r1 = 237 % 10;
-         tempnum = 237 / 10;
-         int r2 = tempnum % 10;
-         int r3 = tempnum / 10;
-      	
+         Object[] values = create.PIN(log);
+         comfPin = Integer.parseInt(values[0].toString());
+         log = Integer.parseInt(values[1].toString());
+      
          int chkacctnum1 = generator.nextInt(999) + 100;
          if (chkacctnum1 > 999) {
             chkacctnum1 -= 1000;
@@ -243,10 +36,6 @@
          if (chkacctnum1 < 100) {
             chkacctnum1 += 100;
          }
-         int chkr4 = chkacctnum1 % 10;
-         tempnum = chkacctnum1 / 10;
-         int chkr5 = tempnum % 10;
-         int chkr6 = tempnum / 10;
          int chkacctnum2 = generator.nextInt(999) + 100;
          if (chkacctnum2 > 999) {
             chkacctnum2 -= 1000;
@@ -254,10 +43,6 @@
          if (chkacctnum2 < 100) {
             chkacctnum2 += 100;
          }
-         int chkr7 = chkacctnum2 % 10;
-         tempnum = chkacctnum2 / 10;
-         int chkr8 = tempnum % 10;
-         int chkr9 = tempnum / 10;
          int chkacctnum3 = generator.nextInt(999) + 100;
          if (chkacctnum3 > 999) {
             chkacctnum3 -= 1000;
@@ -265,10 +50,6 @@
          if (chkacctnum3 < 100) {
             chkacctnum3 += 100;
          }
-         int chkr10 = chkacctnum3 % 10;
-         tempnum = chkacctnum3 / 10;
-         int chkr11 = tempnum % 10;
-         int chkr12 = tempnum / 10;
       	
          balInput = JOptionPane.showInputDialog("Enter the inital deposit for checking account."
             + "\nMinimum of $25 to open account" + " " + "(237" + chkacctnum1 + chkacctnum2
@@ -280,11 +61,11 @@
          }
             catch (NumberFormatException ex) {
                System.out.println(log + "\t:\t\t\t" + "Error: " +ex.getMessage() + " " + "entered!");
-					log++;
+               log++;
             }
             catch (NullPointerException ex) {
                System.out.println(log + "\t:\t\t\t" + "Nothing was entered: " +ex.getMessage());
-					log++;
+               log++;
             }
       	
          while (balance < 25) {
@@ -321,10 +102,6 @@
          if (savacctnum1 < 100) {
             savacctnum1 += 100;
          }
-         int savr4 = savacctnum1 % 10;
-         tempnum = savacctnum1 / 10;
-         int savr5 = tempnum % 10;
-         int savr6 = tempnum / 10;
          int savacctnum2 = generator.nextInt(999) + 100;
          if (savacctnum2 > 999) {
             savacctnum2 -= 1000;
@@ -332,10 +109,6 @@
          if (savacctnum2 < 100) {
             savacctnum2 += 100;
          }
-         int savr7 = savacctnum2 % 10;
-         tempnum = savacctnum2 / 10;
-         int savr8 = tempnum % 10;
-         int savr9 = tempnum / 10;
          int savacctnum3 = generator.nextInt(999) + 100;
          if (savacctnum3 > 999) {
             savacctnum3 -= 1000;
@@ -343,10 +116,6 @@
          if (savacctnum3 < 100) {
             savacctnum3 += 100;
          }
-         int savr10 = savacctnum3 % 10;
-         tempnum = savacctnum3 / 10;
-         int savr11 = tempnum % 10;
-         int savr12 = tempnum / 10;
       	
          balRegSavInput = JOptionPane.showInputDialog("Enter the inital deposit for regular savings account."
             + "\nMinimum of $5 to open account" + " " + "(237" + savacctnum1 + savacctnum2 + savacctnum3 + ").");
@@ -357,11 +126,11 @@
          }
             catch (NumberFormatException ex) {
                System.out.println(log + "\t:\t\t\t" + "Error: " +ex.getMessage() + " " + "entered!");
-					log++;
+               log++;
             }
             catch (NullPointerException ex) {
                System.out.println(log + "\t:\t\t\t" + "Nothing was entered: " +ex.getMessage());
-					log++;
+               log++;
             }
       	
          while (balanceRegSav < 5) {
@@ -377,11 +146,11 @@
             }
                catch (NumberFormatException ex) {
                   System.out.println(log + "\t:\t\t\t" + "Error: " +ex.getMessage() + " " + "entered!");
-						log++;
+                  log++;
                }
                catch (NullPointerException ex) {
                   System.out.println(log + "\t:\t\t\t" + "Nothing was entered: " +ex.getMessage());
-						log++;
+                  log++;
                }
          }
       	
@@ -401,11 +170,11 @@
          }
             catch (NumberFormatException ex) {
                System.out.println(log + "\t:\t\t\t" + "Error: " +ex.getMessage() + " " + "entered!");
-					log++;
+               log++;
             }
             catch (NullPointerException ex) {
                System.out.println(log + "\t:\t\t\t" + "Nothing was entered: " +ex.getMessage());
-					log++;
+               log++;
             }
          
          while (cash < 100) {
@@ -421,11 +190,11 @@
             }
                catch (NumberFormatException ex) {
                   System.out.println(log + "\t:\t\t\t" + "Error: " +ex.getMessage() + " " + "entered!");
-						log++;
+                  log++;
                }
                catch (NullPointerException ex) {
                   System.out.println(log + "\t:\t\t\t" + "Nothing was entered: " +ex.getMessage());
-						log++;
+                  log++;
                }
          }
       	
@@ -438,48 +207,39 @@
          System.out.println(log + "\t:\t\t\t" + "It is day" + " " + day + ".");
          log++;
          
-         double pay = generator.nextInt(777) + 77;
-         double mBonus = generator.nextInt(25) + 1;
-         double sBonus = generator.nextInt(77) + 50;
+         double pay, mBonus, sBonus;
          
          do { 
-            String accountMenu_input;
-            int accountMenu;     
-            String menuInput;
-            int menu;
-            String menuRegSavInput;
-            int menuRegSav;
-            String dirdep_cashInput;
-            int dirdep_cash;
-            int confirm;
-            String toAccountInput;
-            int toAccount;
-            int resetPin;
-            int finalTry;
-            String validPinIn;
-            int validPin;
-            int count = 2;
+            String accountMenu_input, menuInput, menuRegSavInput, dirdep_cashInput, toAccountInput;
+            int accountMenu, menu, menuRegSav, dirdep_cash, confirm, toAccount, resetPin, finalTry, count = 2;
          	
             if (day % 7 == 0) {
                System.out.println("\nID\t:\t\t\tMessage"
                   + "\n--------------------------------------------------------------------------------------------------"
                   + "-----------------------");
+               pay = generator.nextInt(777) + 77;
                if (day % 14 == 0) {
-                  pay += mBonus;
-                  System.out.println(log + "\t:\t\t\t" + "It is payday!");
-                  log++; 
+                  mBonus = generator.nextInt(25) + 1;
+                  System.out.println(log + "\t:\t\t\t" + "Your check is" + " " + "$"
+                     + String.format("%.2f", pay) + "!");
+                  log++;
                   System.out.println(log + "\t:\t\t\t" + "You recieved a minor bonus of" + " " + "$"
                      + String.format("%.2f", mBonus) + "!");
                   log++;
+                  pay += mBonus;
                   System.out.println(log + "\t:\t\t\t" + "Your checks' total was" + " " + "$"
                      + String.format("%.2f", pay) + "!");
                   log++;
                }
                if (day % 49 == 0) {
-                  pay += sBonus;
+                  sBonus = generator.nextInt(77) + 50;
+                  System.out.println(log + "\t:\t\t\t" + "Your check is" + " " + "$"
+                     + String.format("%.2f", pay) + "!");
+                  log++;
                   System.out.println(log + "\t:\t\t\t" + "You recieved a significant bonus of" + " " + "$"
                      + String.format("%.2f", sBonus) + "!");
                   log++;
+                  pay += sBonus;
                   System.out.println(log + "\t:\t\t\t" + "Your checks' total was" + " " + "$"
                      + String.format("%.2f",  pay) + "!");
                   log++;
@@ -488,638 +248,10 @@
                   + "\nIt's payday! You have recieved" + " " + "$" + String.format("%.2f", pay) + "!!",
                   "Payday", JOptionPane.INFORMATION_MESSAGE);
             		
-               validPinIn = JOptionPane.showInputDialog("Enter in your PIN:");
-               validPin = 0;
-            
-               try {
-                  validPin = Integer.parseInt(validPinIn);
-               }
-                  catch (NumberFormatException ex) {
-                     System.out.println(log + "\t:\t\t\t" + "Error: " +ex.getMessage() + " " + "entered!");
-							log++;
-                  }
-                  catch (NullPointerException ex) {
-                     System.out.println(log + "\t:\t\t\t" + "Nothing was entered: " +ex.getMessage());
-							log++;
-                  }
-               System.out.println(log + "\t:\t\t\t" + "Validating PIN...");
-               log++;  	
-            
-               while (validPin != comfPin) {
-                  System.out.println(log + "\t:\t\t\t" + "Validation FAILED!");
-                  log++;
-                  validPinIn = JOptionPane.showInputDialog("Enter in your PIN:");
-                  validPin = 0;
-               
-                  try {
-                     validPin = Integer.parseInt(validPinIn);
-                  }
-                     catch (NumberFormatException ex) {
-                        System.out.println(log + "\t:\t\t\t" + "Error: " +ex.getMessage() + " " + "entered!");
-								log++;
-                     }
-                     catch (NullPointerException ex) {
-                        System.out.println(log + "\t:\t\t\t" + "Nothing was entered: " +ex.getMessage());
-								log++;
-                     }
-                  System.out.println(log + "\t:\t\t\t" + "Validating PIN...");
-                  log++;
-               	
-                  if (count == 3) {
-                     System.out.println(log + "\t:\t\t\t" + "You have entered your PIN in three times wrong!");
-                     log++;
-                     resetPin = JOptionPane.showConfirmDialog(null, "You have entered your PIN in three times"
-                        	+ " " + "incorrectly!"
-                        	+ "\nWould you like to reset your PIN?"
-                        	+ "\n\nNote: After 10 unsuccessful attempts, you are forced to either"
-                        	+ " " + "reset PIN, or quit game.", "Reset PIN", JOptionPane.YES_NO_OPTION,
-                        	JOptionPane.QUESTION_MESSAGE);
-                     if (resetPin == JOptionPane.NO_OPTION) {
-                        JOptionPane.showMessageDialog(null, "Please try your PIN again.");
-                        validPinIn = JOptionPane.showInputDialog("Enter in your PIN:");
-                        validPin = 0;
-                     
-                        try {
-                           validPin = Integer.parseInt(validPinIn);
-                        }
-                           catch (NumberFormatException ex) {
-                              System.out.println(log + "\t:\t\t\t" + "Error: " +ex.getMessage() + " " + "entered!");
-										log++;
-                           }
-                           catch (NullPointerException ex) {
-                              System.out.println(log + "\t:\t\t\t" + "Nothing was entered: " +ex.getMessage());
-										log++;
-                           }
-                        System.out.println(log + "\t:\t\t\t" + "Validating PIN...");
-                        log++;
-                     		
-                        while (validPin != comfPin) {
-                           System.out.println(log + "\t:\t\t\t" + "Validation FAILED!");
-                           log++;
-                           validPinIn = JOptionPane.showInputDialog("Enter in your PIN:");
-                           validPin = 0;
-                        
-                           try {
-                              validPin = Integer.parseInt(validPinIn);
-                           }
-                              catch (NumberFormatException ex) {
-                                 System.out.println(log + "\t:\t\t\t" + "Error: " +ex.getMessage() + " " + "entered!");
-											log++;
-                              }
-                              catch (NullPointerException ex) {
-                                 System.out.println(log + "\t:\t\t\t" + "Nothing was entered: " +ex.getMessage());
-											log++;
-                              }
-                           System.out.println(log + "\t:\t\t\t" + "Validating PIN...");
-                           log++;
-                        	
-                           if (count == 8) {
-                              System.out.println(log + "\t:\t\t\t" + "You MUST reset PIN or quit game!");
-                              log++;
-                              finalTry = JOptionPane.showConfirmDialog(null, "You have unsuccessfully entered your PIN 10"
-                                 + " " + "times. You must reset your PIN or end your game!"
-                                 + "\nReset PIN?", "Reset PIN", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-                            
-                              if (finalTry == JOptionPane.NO_OPTION) {
-                                 System.exit(0);
-                              }
-                              else if (finalTry == JOptionPane.YES_OPTION) {
-                                 int resetCount = 1;
-                                 System.out.println(log + "\t:\t\t\t" + "Attempting to reset PIN...");
-                                 log++;
-                                 String resetIn = JOptionPane.showInputDialog("To reset your PIN, enter the sum of the digits of"
-                                    + " " + "either account's account number."
-                                    + "\nChecking Account Number:" + " " + "237" + chkacctnum1 + chkacctnum2
-                                    + chkacctnum3
-                                    + "\nRegular Savings Account Number:" + " " + "237" + savacctnum1 + savacctnum2
-                                    + savacctnum3);
-                                 int reset = 0;
-                              
-                                 try {
-                                    reset = Integer.parseInt(resetIn);
-                                 }
-                                    catch (NumberFormatException ex) {
-                                       System.out.println(log + "\t:\t\t\t" + "Error: " +ex.getMessage() + " " + "entered!");
-													log++;
-                                    }
-                                    catch (NullPointerException ex) {
-                                       System.out.println(log + "\t:\t\t\t" + "Nothing was entered: " +ex.getMessage());
-													log++;
-                                    }
-                              
-                                 System.out.println(log + "\t:\t\t\t" + "Validating Entry...");
-                                 log++;
-                              
-                                 int chksum = r1 + r2 + r3 + chkr4 + chkr5 + chkr6 + chkr7 + chkr8 + chkr9 + chkr10
-                                    + chkr11 + chkr12;
-                                 int savsum = r1 + r2 + r3 + savr4 + savr5 + savr6 + savr7 + savr8 + savr9 + savr10
-                                    + savr11 + savr12;
-                              
-                                 while (reset != chksum && reset != savsum) {
-                                    resetIn = JOptionPane.showInputDialog("Try Again!"
-                                       + "\n\nTo reset your PIN, enter the sum of the digits of either account's account number."
-                                       + "\nChecking Account Number:" + " " + "237" + chkacctnum1 + chkacctnum2
-                                       + chkacctnum3
-                                       + "\nRegular Savings Account Number:" + " " + "237" + savacctnum1 + savacctnum2
-                                       + savacctnum3);
-                                    reset = 0;
-                                 
-                                    try {
-                                       reset = Integer.parseInt(resetIn);
-                                    }
-                                       catch (NumberFormatException ex) {
-                                          System.out.println(log + "\t:\t\t\t" + "Error: " +ex.getMessage() + " " + "entered!");
-														log++;
-                                       }
-                                       catch (NullPointerException ex) {
-                                          System.out.println(log + "\t:\t\t\t" + "Nothing was entered: " +ex.getMessage());
-														log++;
-                                       }
-                                 
-                                    System.out.println(log + "\t:\t\t\t" + "Validating Entry...");
-                                    log++;
-                                 
-                                    if (resetCount == 10) {
-                                       JOptionPane.showMessageDialog(null, "Game Over!"
-                                          + "\nYou have had 10 unsuccessful attempts at trying to reset your PIN.", "Game Over!",
-                                          JOptionPane.ERROR_MESSAGE);
-                                       System.exit(0);
-                                    }
-                                    resetCount++;
-                                 }
-                                 specPinIn = JOptionPane.showInputDialog("Please create a PIN within the range of 1,000 to 9,999"
-                                    + "\nCreate a PIN:");
-                                 specPin = 0;
-                              
-                                 try {
-                                    specPin = Integer.parseInt(specPinIn);
-                                 }
-                                    catch (NumberFormatException ex) {
-                                       System.out.println(log + "\t:\t\t\t" + "Unable to create PIN as decimal: "+ex.getMessage());
-													log++;
-                                    }
-                                    catch (NullPointerException ex) {
-                                       System.out.println(log + "\t:\t\t\t" + "Nothing was entered: " +ex.getMessage());
-													log++;
-                                    }
-                              
-                                 while (specPin < 1000) {
-                                    System.out.println(log + "\t:\t\t\t" + "Your PIN is too small! Please choose one from 1,000 to 9,999.");
-                                    log++;  	
-                                    specPinIn = JOptionPane.showInputDialog("PIN is too small!!"
-                                       + "\nPlease create a PIN within the range of 1,000 to 9,999"
-                                       + "\nCreate a PIN:");
-                                    specPin = 0;
-                                 
-                                    try {
-                                       specPin = Integer.parseInt(specPinIn);
-                                    }
-                                       catch (NumberFormatException ex) {
-                                          System.out.println(log + "\t:\t\t\t" + "Unable to create PIN as decimal: "+ex.getMessage());
-														log++;
-                                       }
-                                       catch (NullPointerException ex) {
-                                          System.out.println(log + "\t:\t\t\t" + "Nothing was entered: " +ex.getMessage());
-														log++;
-                                       }
-                                 }
-                              
-                                 while (specPin > 9999) {
-                                    System.out.println(log + "\t:\t\t\t" + "Your PIN is too big! Please choose one from 1,000 to 9,999.");
-                                    log++;  	
-                                    specPinIn = JOptionPane.showInputDialog("PIN is too big!!"
-                                       + "\nPlease create a PIN within the range of 1,000 to 9,999"
-                                       + "\nCreate a PIN:");
-                                    specPin = 0;
-                                 
-                                    try {
-                                       specPin = Integer.parseInt(specPinIn);
-                                    }
-                                       catch (NumberFormatException ex) {
-                                          System.out.println(log + "\t:\t\t\t" + "Unable to create PIN as decimal: "+ex.getMessage());
-														log++;
-                                       }
-                                       catch (NullPointerException ex) {
-                                          System.out.println(log + "\t:\t\t\t" + "Nothing was entered: " +ex.getMessage());
-														log++;
-                                       }
-                                    while (specPin < 1000) {
-                                       System.out.println(log + "\t:\t\t\t" + "Your PIN is too small! Please choose one from 1,000 to 9,999.");
-                                       log++;  	
-                                       specPinIn = JOptionPane.showInputDialog("PIN is too small!!"
-                                          + "\nPlease create a PIN within the range of 1,000 to 9,999"
-                                          + "\nCreate a PIN:");
-                                       specPin = 0;
-                                    
-                                       try {
-                                          specPin = Integer.parseInt(specPinIn);
-                                       }
-                                          catch (NumberFormatException ex) {
-                                             System.out.println(log + "\t:\t\t\t" + "Unable to create PIN as decimal: "+ex.getMessage());
-															log++;
-                                          }
-                                          catch (NullPointerException ex) {
-                                             System.out.println(log + "\t:\t\t\t" + "Nothing was entered: " +ex.getMessage());
-															log++;
-                                          }
-                                    }
-                                 }
-                              
-                                 comfPinIn = JOptionPane.showInputDialog("Comfirm PIN:");
-                                 comfPin = 0;
-                              
-                                 try {
-                                    comfPin = Integer.parseInt(comfPinIn);
-                                 }
-                                    catch (NumberFormatException ex) {
-                                       System.out.println(log + "\t:\t\t\t" + "Unable to create PIN as decimal: "+ex.getMessage());
-													log++;
-                                    }
-                                    catch (NullPointerException ex) {
-                                       System.out.println(log + "\t:\t\t\t" + "Nothing was entered: " +ex.getMessage());
-													log++;
-                                    }
-                              
-                                 while (specPin != comfPin) {
-                                    System.out.println(log + "\t:\t\t\t" + "Your PINs do NOT MATCH!");
-                                    log++;  	
-                                    specPinIn = JOptionPane.showInputDialog("The PIN entered does NOT Match!!"
-                                       + "\nPlease create a PIN within the range of 1,000 to 9,999"
-                                       + "\nCreate a PIN:");
-                                    specPin = 0;
-                                 
-                                    try {
-                                       specPin = Integer.parseInt(specPinIn);
-                                    }
-                                       catch (NumberFormatException ex) {
-                                          System.out.println(log + "\t:\t\t\t" + "Unable to create PIN as decimal: "+ex.getMessage());
-														log++;
-                                       }
-                                       catch (NullPointerException ex) {
-                                          System.out.println(log + "\t:\t\t\t" + "Nothing was entered: " +ex.getMessage());
-														log++;
-                                       }
-                                 
-                                    while (specPin < 1000) {
-                                       System.out.println(log + "\t:\t\t\t" + "Your PIN is too small! Please choose one from 1,000 to 9,999.");
-                                       log++;  	
-                                       specPinIn = JOptionPane.showInputDialog("PIN is too small!!"
-                                          + "\nPlease create a PIN within the range of 1,000 to 9,999"
-                                          + "\nCreate a PIN:");
-                                       specPin = 0;
-                                    
-                                       try {
-                                          specPin = Integer.parseInt(specPinIn);
-                                       }
-                                          catch (NumberFormatException ex) {
-                                             System.out.println(log + "\t:\t\t\t" + "Unable to create PIN as decimal: "+ex.getMessage());
-															log++;
-                                          }
-                                          catch (NullPointerException ex) {
-                                             System.out.println(log + "\t:\t\t\t" + "Nothing was entered: " +ex.getMessage());
-															log++;
-                                          }
-                                    }
-                                 
-                                    while (specPin > 9999) {
-                                       System.out.println(log + "\t:\t\t\t" + "Your PIN is too big! Please choose one from 1,000 to 9,999.");
-                                       log++;  	
-                                       specPinIn = JOptionPane.showInputDialog("PIN is too big!!"
-                                          + "\nPlease create a PIN within the range of 1,000 to 9,999"
-                                          + "\nCreate a PIN:");
-                                       specPin = 0;
-                                    
-                                       try {
-                                          specPin = Integer.parseInt(specPinIn);
-                                       }
-                                          catch (NumberFormatException ex) {
-                                             System.out.println(log + "\t:\t\t\t" + "Unable to create PIN as decimal: "+ex.getMessage());
-															log++;
-                                          }
-                                          catch (NullPointerException ex) {
-                                             System.out.println(log + "\t:\t\t\t" + "Nothing was entered: " +ex.getMessage());
-															log++;
-                                          }
-                                       while (specPin < 1000) {
-                                          System.out.println(log + "\t:\t\t\t" + "Your PIN is too small! Please choose one from 1,000 to 9,999.");
-                                          log++;  	
-                                          specPinIn = JOptionPane.showInputDialog("PIN is too small!!"
-                                             + "\nPlease create a PIN within the range of 1,000 to 9,999"
-                                             + "\nCreate a PIN:");
-                                          specPin = 0;
-                                       
-                                          try {
-                                             specPin = Integer.parseInt(specPinIn);
-                                          }
-                                             catch (NumberFormatException ex) {
-                                                System.out.println(log + "\t:\t\t\t" + "Unable to create PIN as decimal: "+ex.getMessage());
-																log++;
-                                             }
-                                             catch (NullPointerException ex) {
-                                                System.out.println(log + "\t:\t\t\t" + "Nothing was entered: " +ex.getMessage());
-																log++;
-                                             }
-                                       }
-                                    }
-                                 
-                                    comfPinIn = JOptionPane.showInputDialog("Comfirm PIN:");
-                                    comfPin = 0;
-                                 
-                                    try {
-                                       comfPin = Integer.parseInt(comfPinIn);
-                                    }
-                                       catch (NumberFormatException ex) {
-                                          System.out.println(log + "\t:\t\t\t" + "Unable to create PIN as decimal: "+ex.getMessage());
-														log++;
-                                       }
-                                       catch (NullPointerException ex) {
-                                          System.out.println(log + "\t:\t\t\t" + "Nothing was entered: " +ex.getMessage());
-														log++;
-                                       }
-                                 }
-                              
-                                 JOptionPane.showMessageDialog(null, "Your PIN was successfully changed!!"
-                                    + "\n\nYour pin is:" + " " + comfPin
-                                    + "\nWrite this down in a safe location! It will not be displayed again!");
-                              
-                                 pin = "0000".replaceAll("[0]", "*");
-                                 System.out.println(log + "\t:\t\t\t" + "PIN Successfully Changed:" + " " + pin);
-                                 log++;
-                              }
-                           }
-                           count++;
-                        }
-                     }
-                     else if (resetPin == JOptionPane.YES_OPTION) {
-                        int resetCount = 0;
-                        System.out.println(log + "\t:\t\t\t" + "Attempting to reset PIN...");
-                        log++;
-                        String resetIn = JOptionPane.showInputDialog("To reset your PIN, enter the sum of the digits of"
-                           + " " + "either account's account number."
-                           + "\nChecking Account Number:" + " " + "237" + chkacctnum1 + chkacctnum2
-                           + chkacctnum3
-                           + "\nRegular Savings Account Number:" + " " + "237" + savacctnum1 + savacctnum2
-                           + savacctnum3
-                           + "\n\nNote: 10 unsuccessful attempts to reset will force you to quit game.");
-                        int reset = 0;
-                                 
-                        try {
-                           reset = Integer.parseInt(resetIn);
-                        }
-                           catch (NumberFormatException ex) {
-                              System.out.println(log + "\t:\t\t\t" + "Error: " +ex.getMessage() + " " + "entered!");
-										log++;
-                           }
-                           catch (NullPointerException ex) {
-                              System.out.println(log + "\t:\t\t\t" + "Nothing was entered: " +ex.getMessage());
-										log++;
-                           }
-                     	
-                        System.out.println(log + "\t:\t\t\t" + "Validating Entry...");
-                        log++;
-                     	
-                        int chksum = r1 + r2 + r3 + chkr4 + chkr5 + chkr6 + chkr7 + chkr8 + chkr9 + chkr10
-                           		 + chkr11 + chkr12;
-                        int savsum = r1 + r2 + r3 + savr4 + savr5 + savr6 + savr7 + savr8 + savr9 + savr10
-                           		 + savr11 + savr12;
-                     	
-                        while (reset != chksum && reset != savsum) {
-                           resetIn = JOptionPane.showInputDialog("Try Again!"
-                              + "\n\nTo reset your PIN, enter the sum of the digits of either account's account number."
-                              + "\nChecking Account Number:" + " " + "237" + chkacctnum1 + chkacctnum2
-                              + chkacctnum3
-                              + "\nRegular Savings Account Number:" + " " + "237" + savacctnum1 + savacctnum2
-                              + savacctnum3
-                              + "\n\nNote: 10 unsuccessful attempts to reset will force you to quit game.");
-                           reset = 0;
-                                 
-                           try {
-                              reset = Integer.parseInt(resetIn);
-                           }
-                              catch (NumberFormatException ex) {
-                                 System.out.println(log + "\t:\t\t\t" + "Error: " +ex.getMessage() + " " + "entered!");
-											log++;
-                              }
-                              catch (NullPointerException ex) {
-                                 System.out.println(log + "\t:\t\t\t" + "Nothing was entered: " +ex.getMessage());
-											log++;
-                              }
-                        	
-                           System.out.println(log + "\t:\t\t\t" + "Validating Entry...");
-                           log++;
-                        	
-                           if (resetCount == 8) {
-                              JOptionPane.showMessageDialog(null, "Game Over!"
-                                 + "\nYou have had 10 unsuccessful attempts at trying to reset your PIN.", "Game Over!",
-                                 JOptionPane.ERROR_MESSAGE);
-                              System.exit(0);
-                           }
-                           resetCount++;
-                        }
-                        specPinIn = JOptionPane.showInputDialog("Please create a PIN within the range of 1,000 to 9,999"
-                           + "\nCreate a PIN:");
-                        specPin = 0;
-                                    
-                        try {
-                           specPin = Integer.parseInt(specPinIn);
-                        }
-                           catch (NumberFormatException ex) {
-                              System.out.println(log + "\t:\t\t\t" + "Unable to create PIN as decimal: "+ex.getMessage());
-										log++;
-                           }
-                           catch (NullPointerException ex) {
-                              System.out.println(log + "\t:\t\t\t" + "Nothing was entered: " +ex.getMessage());
-										log++;
-                           }
-                              
-                        while (specPin < 1000) {
-                           System.out.println(log + "\t:\t\t\t" + "Your PIN is too small! Please choose one from 1,000 to 9,999.");
-                           log++;  	
-                           specPinIn = JOptionPane.showInputDialog("PIN is too small!!"
-                                       + "\nPlease create a PIN within the range of 1,000 to 9,999"
-                                       + "\nCreate a PIN:");
-                           specPin = 0;
-                                    
-                           try {
-                              specPin = Integer.parseInt(specPinIn);
-                           }
-                              catch (NumberFormatException ex) {
-                                 System.out.println(log + "\t:\t\t\t" + "Unable to create PIN as decimal: "+ex.getMessage());
-											log++;
-                              }
-                              catch (NullPointerException ex) {
-                                 System.out.println(log + "\t:\t\t\t" + "Nothing was entered: " +ex.getMessage());
-											log++;
-                              }
-                        }
-                              
-                        while (specPin > 9999) {
-                           System.out.println(log + "\t:\t\t\t" + "Your PIN is too big! Please choose one from 1,000 to 9,999.");
-                           log++;  	
-                           specPinIn = JOptionPane.showInputDialog("PIN is too big!!"
-                                       + "\nPlease create a PIN within the range of 1,000 to 9,999"
-                                       + "\nCreate a PIN:");
-                           specPin = 0;
-                                    
-                           try {
-                              specPin = Integer.parseInt(specPinIn);
-                           }
-                              catch (NumberFormatException ex) {
-                                 System.out.println(log + "\t:\t\t\t" + "Unable to create PIN as decimal: "+ex.getMessage());
-											log++;
-                              }
-                              catch (NullPointerException ex) {
-                                 System.out.println(log + "\t:\t\t\t" + "Nothing was entered: " +ex.getMessage());
-											log++;
-                              }
-                           while (specPin < 1000) {
-                              System.out.println(log + "\t:\t\t\t" + "Your PIN is too small! Please choose one from 1,000 to 9,999.");
-                              log++;  	
-                              specPinIn = JOptionPane.showInputDialog("PIN is too small!!"
-                                 + "\nPlease create a PIN within the range of 1,000 to 9,999"
-                                 + "\nCreate a PIN:");
-                              specPin = 0;
-                                    
-                              try {
-                                 specPin = Integer.parseInt(specPinIn);
-                              }
-                                 catch (NumberFormatException ex) {
-                                    System.out.println(log + "\t:\t\t\t" + "Unable to create PIN as decimal: "+ex.getMessage());
-												log++;
-                                 }
-                                 catch (NullPointerException ex) {
-                                    System.out.println(log + "\t:\t\t\t" + "Nothing was entered: " +ex.getMessage());
-												log++;
-                                 }
-                           }
-                        }
-                              
-                        comfPinIn = JOptionPane.showInputDialog("Comfirm PIN:");
-                        comfPin = 0;
-                                 
-                        try {
-                           comfPin = Integer.parseInt(comfPinIn);
-                        }
-                           catch (NumberFormatException ex) {
-                              System.out.println(log + "\t:\t\t\t" + "Unable to create PIN as decimal: "+ex.getMessage());
-										log++;
-                           }
-                           catch (NullPointerException ex) {
-                              System.out.println(log + "\t:\t\t\t" + "Nothing was entered: " +ex.getMessage());
-										log++;
-                           }
-                              
-                        while (specPin != comfPin) {
-                           System.out.println(log + "\t:\t\t\t" + "Your PINs do NOT MATCH!");
-                           log++;  	
-                           specPinIn = JOptionPane.showInputDialog("The PIN entered does NOT Match!!"
-                                       + "\nPlease create a PIN within the range of 1,000 to 9,999"
-                                       + "\nCreate a PIN:");
-                           specPin = 0;
-                                    
-                           try {
-                              specPin = Integer.parseInt(specPinIn);
-                           }
-                              catch (NumberFormatException ex) {
-                                 System.out.println(log + "\t:\t\t\t" + "Unable to create PIN as decimal: "+ex.getMessage());
-											log++;
-                              }
-                              catch (NullPointerException ex) {
-                                 System.out.println(log + "\t:\t\t\t" + "Nothing was entered: " +ex.getMessage());
-											log++;
-                              }
-                        
-                           while (specPin < 1000) {
-                              System.out.println(log + "\t:\t\t\t" + "Your PIN is too small! Please choose one from 1,000 to 9,999.");
-                              log++;  	
-                              specPinIn = JOptionPane.showInputDialog("PIN is too small!!"
-                                       + "\nPlease create a PIN within the range of 1,000 to 9,999"
-                                       + "\nCreate a PIN:");
-                              specPin = 0;
-                                    
-                              try {
-                                 specPin = Integer.parseInt(specPinIn);
-                              }
-                                 catch (NumberFormatException ex) {
-                                    System.out.println(log + "\t:\t\t\t" + "Unable to create PIN as decimal: "+ex.getMessage());
-												log++;
-                                 }
-                                 catch (NullPointerException ex) {
-                                    System.out.println(log + "\t:\t\t\t" + "Nothing was entered: " +ex.getMessage());
-												log++;
-                                 }
-                           }
-                              
-                           while (specPin > 9999) {
-                              System.out.println(log + "\t:\t\t\t" + "Your PIN is too big! Please choose one from 1,000 to 9,999.");
-                              log++;  	
-                              specPinIn = JOptionPane.showInputDialog("PIN is too big!!"
-                                       + "\nPlease create a PIN within the range of 1,000 to 9,999"
-                                       + "\nCreate a PIN:");
-                              specPin = 0;
-                                    
-                              try {
-                                 specPin = Integer.parseInt(specPinIn);
-                              }
-                                 catch (NumberFormatException ex) {
-                                    System.out.println(log + "\t:\t\t\t" + "Unable to create PIN as decimal: "+ex.getMessage());
-												log++;
-                                 }
-                                 catch (NullPointerException ex) {
-                                    System.out.println(log + "\t:\t\t\t" + "Nothing was entered: " +ex.getMessage());
-												log++;
-                                 }
-                              while (specPin < 1000) {
-                                 System.out.println(log + "\t:\t\t\t" + "Your PIN is too small! Please choose one from 1,000 to 9,999.");
-                                 log++;  	
-                                 specPinIn = JOptionPane.showInputDialog("PIN is too small!!"
-                                    + "\nPlease create a PIN within the range of 1,000 to 9,999"
-                                    + "\nCreate a PIN:");
-                                 specPin = 0;
-                                    
-                                 try {
-                                    specPin = Integer.parseInt(specPinIn);
-                                 }
-                                    catch (NumberFormatException ex) {
-                                       System.out.println(log + "\t:\t\t\t" + "Unable to create PIN as decimal: "+ex.getMessage());
-													log++;
-                                    }
-                                    catch (NullPointerException ex) {
-                                       System.out.println(log + "\t:\t\t\t" + "Nothing was entered: " +ex.getMessage());
-													log++;
-                                    }
-                              }
-                           }
-                        
-                           comfPinIn = JOptionPane.showInputDialog("Comfirm PIN:");
-                           comfPin = 0;
-                                 
-                           try {
-                              comfPin = Integer.parseInt(comfPinIn);
-                           }
-                              catch (NumberFormatException ex) {
-                                 System.out.println(log + "\t:\t\t\t" + "Unable to create PIN as decimal: "+ex.getMessage());
-											log++;
-                              }
-                              catch (NullPointerException ex) {
-                                 System.out.println(log + "\t:\t\t\t" + "Nothing was entered: " +ex.getMessage());
-											log++;
-                              }
-                        }
-                     
-                        JOptionPane.showMessageDialog(null, "Your PIN was successfully changed!!"
-                           + "\n\nYour pin is:" + " " + comfPin
-                           + "\nWrite this down in a safe location! It will not be displayed again!");
-                     
-                        pin = "0000".replaceAll("[0]", "*");
-                        System.out.println(log + "\t:\t\t\t" + "PIN Successfully Changed:" + " " + pin);
-                        log++;
-                     }
-                     count++;
-                  } 
-                  count++;	
-               }
-               System.out.println(log + "\t:\t\t\t" + "PIN Successfully Validated!");      
+               values = resetPIN.reset(log, comfPin, chkacctnum1, chkacctnum2, chkacctnum3, savacctnum1, savacctnum2,
+                   savacctnum3);
+               comfPin = Integer.parseInt(values[0].toString());
+               log = Integer.parseInt(values[1].toString());    
             	      	 
                dirdep_cashInput = JOptionPane.showInputDialog("Would you like to direct-deposit it or cash it?"
                   + " " + "Enter 1 to direct-deposit or 2 to cash check.");
@@ -1130,11 +262,11 @@
                }
                   catch (NumberFormatException ex) {
                      System.out.println(log + "\t:\t\t\t" + "Unable to determine selection: "+ex.getMessage());
-							log++;
+                     log++;
                   }
                   catch (NullPointerException ex) {
                      System.out.println(log + "\t:\t\t\t" + "Nothing was entered: " +ex.getMessage());
-							log++;
+                     log++;
                   }
             	
                while (dirdep_cash != 1 && dirdep_cash != 2) {
@@ -1151,11 +283,11 @@
                   }
                      catch (NumberFormatException ex) {
                         System.out.println(log + "\t:\t\t\t" + "Unable to determine selection: "+ex.getMessage());
-								log++;
+                        log++;
                      }
                      catch (NullPointerException ex) {
                         System.out.println(log + "\t:\t\t\t" + "Nothing was entered: " +ex.getMessage());
-								log++;
+                        log++;
                      }
                }
             	
@@ -1175,11 +307,11 @@
                      }
                         catch (NumberFormatException ex) {
                            System.out.println(log + "\t:\t\t\t" + "Unable to determine selection: "+ex.getMessage());
-									log++;
+                           log++;
                         }
                         catch (NullPointerException ex) {
                            System.out.println(log + "\t:\t\t\t" + "Nothing was entered: " +ex.getMessage());
-									log++;
+                           log++;
                         }
                      switch (toAccount) {
                         case 1:
@@ -1219,640 +351,12 @@
             }
          	
             System.out.println(log + "\t:\t\t\t" + "Display Account Main Menu...");
-            log++;
-         	
-            validPinIn = JOptionPane.showInputDialog("Enter in your PIN:");
-            validPin = 0;
-                     
-            try {
-               validPin = Integer.parseInt(validPinIn);
-            }
-               catch (NumberFormatException ex) {
-                  System.out.println(log + "\t:\t\t\t" + "Error: " +ex.getMessage() + " " + "entered!");
-						log++;
-               }
-               catch (NullPointerException ex) {
-                  System.out.println(log + "\t:\t\t\t" + "Nothing was entered: " +ex.getMessage());
-						log++;
-               }
-            System.out.println(log + "\t:\t\t\t" + "Validating PIN...");
-            log++;  	
+            log++; 	
             
-            while (validPin != comfPin) {
-               System.out.println(log + "\t:\t\t\t" + "Validation FAILED!");
-               log++;
-               validPinIn = JOptionPane.showInputDialog("Enter in your PIN:");
-               validPin = 0;
-                     
-               try {
-                  validPin = Integer.parseInt(validPinIn);
-               }
-                  catch (NumberFormatException ex) {
-                     System.out.println(log + "\t:\t\t\t" + "Error: " +ex.getMessage() + " " + "entered!");
-							log++;
-                  }
-                  catch (NullPointerException ex) {
-                     System.out.println(log + "\t:\t\t\t" + "Nothing was entered: " +ex.getMessage());
-							log++;
-                  }
-               System.out.println(log + "\t:\t\t\t" + "Validating PIN...");
-               log++;
-               	
-               if (count == 3) {
-                  System.out.println(log + "\t:\t\t\t" + "You have entered your PIN in three times wrong!");
-                  log++;
-                  resetPin = JOptionPane.showConfirmDialog(null, "You have entered your PIN in three times"
-                        	+ " " + "incorrectly!"
-                        	+ "\nWould you like to reset your PIN?"
-                        	+ "\n\nNote: After 10 unsuccessful attempts, you are forced to either"
-                        	+ " " + "reset PIN, or quit game.", "Reset PIN", JOptionPane.YES_NO_OPTION,
-                        	JOptionPane.QUESTION_MESSAGE);
-                  if (resetPin == JOptionPane.NO_OPTION) {
-                     JOptionPane.showMessageDialog(null, "Please try your PIN again.");
-                     validPinIn = JOptionPane.showInputDialog("Enter in your PIN:");
-                     validPin = 0;
-                     
-                     try {
-                        validPin = Integer.parseInt(validPinIn);
-                     }
-                        catch (NumberFormatException ex) {
-                           System.out.println(log + "\t:\t\t\t" + "Error: " +ex.getMessage() + " " + "entered!");
-									log++;
-                        }
-                        catch (NullPointerException ex) {
-                           System.out.println(log + "\t:\t\t\t" + "Nothing was entered: " +ex.getMessage());
-									log++;
-                        }
-                     System.out.println(log + "\t:\t\t\t" + "Validating PIN...");
-                     log++;
-                     		
-                     while (validPin != comfPin) {
-                        System.out.println(log + "\t:\t\t\t" + "Validation FAILED!");
-                        log++;
-                        validPinIn = JOptionPane.showInputDialog("Enter in your PIN:");
-                        validPin = 0;
-                     
-                        try {
-                           validPin = Integer.parseInt(validPinIn);
-                        }
-                           catch (NumberFormatException ex) {
-                              System.out.println(log + "\t:\t\t\t" + "Error: " +ex.getMessage() + " " + "entered!");
-										log++;
-                           }
-                           catch (NullPointerException ex) {
-                              System.out.println(log + "\t:\t\t\t" + "Nothing was entered: " +ex.getMessage());
-										log++;
-                           }
-                        System.out.println(log + "\t:\t\t\t" + "Validating PIN...");
-                        log++;
-                        	
-                        if (count == 8) {
-                           System.out.println(log + "\t:\t\t\t" + "You MUST reset PIN or quit game!");
-                           log++;
-                           finalTry = JOptionPane.showConfirmDialog(null, "You have unsuccessfully entered your PIN 10"
-                                 + " " + "times. You must reset your PIN or end your game!"
-                                 + "\nReset PIN?", "Reset PIN", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-                            
-                           if (finalTry == JOptionPane.NO_OPTION) {
-                              System.exit(0);
-                           }
-                           else if (finalTry == JOptionPane.YES_OPTION) {
-                              int resetCount = 1;
-                              System.out.println(log + "\t:\t\t\t" + "Attempting to reset PIN...");
-                              log++;
-                              String resetIn = JOptionPane.showInputDialog("To reset your PIN, enter the sum of the digits of"
-                                    + " " + "either account's account number."
-                                    + "\nChecking Account Number:" + " " + "237" + chkacctnum1 + chkacctnum2
-                                    + chkacctnum3
-                                    + "\nRegular Savings Account Number:" + " " + "237" + savacctnum1 + savacctnum2
-                                    + savacctnum3);
-                              int reset = 0;
-                                 
-                              try {
-                                 reset = Integer.parseInt(resetIn);
-                              }
-                                 catch (NumberFormatException ex) {
-                                    System.out.println(log + "\t:\t\t\t" + "Error: " +ex.getMessage() + " " + "entered!");
-												log++;
-                                 }
-                                 catch (NullPointerException ex) {
-                                    System.out.println(log + "\t:\t\t\t" + "Nothing was entered: " +ex.getMessage());
-												log++;
-                                 }
-                              
-                              System.out.println(log + "\t:\t\t\t" + "Validating Entry...");
-                              log++;
-                              
-                              int chksum = r1 + r2 + r3 + chkr4 + chkr5 + chkr6 + chkr7 + chkr8 + chkr9 + chkr10
-                                    + chkr11 + chkr12;
-                              int savsum = r1 + r2 + r3 + savr4 + savr5 + savr6 + savr7 + savr8 + savr9 + savr10
-                                    + savr11 + savr12;
-                              
-                              while (reset != chksum && reset != savsum) {
-                                 resetIn = JOptionPane.showInputDialog("Try Again!"
-                                       + "\n\nTo reset your PIN, enter the sum of the digits of either account's account number."
-                                       + "\nChecking Account Number:" + " " + "237" + chkacctnum1 + chkacctnum2
-                                       + chkacctnum3
-                                       + "\nRegular Savings Account Number:" + " " + "237" + savacctnum1 + savacctnum2
-                                       + savacctnum3);
-                                 reset = 0;
-                                 
-                                 try {
-                                    reset = Integer.parseInt(resetIn);
-                                 }
-                                    catch (NumberFormatException ex) {
-                                       System.out.println(log + "\t:\t\t\t" + "Error: " +ex.getMessage() + " " + "entered!");
-													log++;
-                                    }
-                                    catch (NullPointerException ex) {
-                                       System.out.println(log + "\t:\t\t\t" + "Nothing was entered: " +ex.getMessage());
-													log++;
-                                    }
-                                 
-                                 System.out.println(log + "\t:\t\t\t" + "Validating Entry...");
-                                 log++;
-                                 
-                                 if (resetCount == 10) {
-                                    JOptionPane.showMessageDialog(null, "Game Over!"
-                                          + "\nYou have had 10 unsuccessful attempts at trying to reset your PIN.", "Game Over!",
-                                          JOptionPane.ERROR_MESSAGE);
-                                    System.exit(0);
-                                 }
-                                 resetCount++;
-                              }
-                              specPinIn = JOptionPane.showInputDialog("Please create a PIN within the range of 1,000 to 9,999"
-                                    + "\nCreate a PIN:");
-                              specPin = 0;
-                                    
-                              try {
-                                 specPin = Integer.parseInt(specPinIn);
-                              }
-                                 catch (NumberFormatException ex) {
-                                    System.out.println(log + "\t:\t\t\t" + "Unable to create PIN as decimal: "+ex.getMessage());
-												log++;
-                                 }
-                                 catch (NullPointerException ex) {
-                                    System.out.println(log + "\t:\t\t\t" + "Nothing was entered: " +ex.getMessage());
-												log++;
-                                 }
-                              
-                              while (specPin < 1000) {
-                                 System.out.println(log + "\t:\t\t\t" + "Your PIN is too small! Please choose one from 1,000 to 9,999.");
-                                 log++;  	
-                                 specPinIn = JOptionPane.showInputDialog("PIN is too small!!"
-                                       + "\nPlease create a PIN within the range of 1,000 to 9,999"
-                                       + "\nCreate a PIN:");
-                                 specPin = 0;
-                                    
-                                 try {
-                                    specPin = Integer.parseInt(specPinIn);
-                                 }
-                                    catch (NumberFormatException ex) {
-                                       System.out.println(log + "\t:\t\t\t" + "Unable to create PIN as decimal: "+ex.getMessage());
-													log++;
-                                    }
-                                    catch (NullPointerException ex) {
-                                       System.out.println(log + "\t:\t\t\t" + "Nothing was entered: " +ex.getMessage());
-													log++;
-                                    }
-                              }
-                              
-                              while (specPin > 9999) {
-                                 System.out.println(log + "\t:\t\t\t" + "Your PIN is too big! Please choose one from 1,000 to 9,999.");
-                                 log++;  	
-                                 specPinIn = JOptionPane.showInputDialog("PIN is too big!!"
-                                       + "\nPlease create a PIN within the range of 1,000 to 9,999"
-                                       + "\nCreate a PIN:");
-                                 specPin = 0;
-                                    
-                                 try {
-                                    specPin = Integer.parseInt(specPinIn);
-                                 }
-                                    catch (NumberFormatException ex) {
-                                       System.out.println(log + "\t:\t\t\t" + "Unable to create PIN as decimal: "+ex.getMessage());
-													log++;
-                                    }
-                                    catch (NullPointerException ex) {
-                                       System.out.println(log + "\t:\t\t\t" + "Nothing was entered: " +ex.getMessage());
-													log++;
-                                    }
-                                 while (specPin < 1000) {
-                                    System.out.println(log + "\t:\t\t\t" + "Your PIN is too small! Please choose one from 1,000 to 9,999.");
-                                    log++;  	
-                                    specPinIn = JOptionPane.showInputDialog("PIN is too small!!"
-                                          + "\nPlease create a PIN within the range of 1,000 to 9,999"
-                                          + "\nCreate a PIN:");
-                                    specPin = 0;
-                                    
-                                    try {
-                                       specPin = Integer.parseInt(specPinIn);
-                                    }
-                                       catch (NumberFormatException ex) {
-                                          System.out.println(log + "\t:\t\t\t" + "Unable to create PIN as decimal: "+ex.getMessage());
-														log++;
-                                       }
-                                       catch (NullPointerException ex) {
-                                          System.out.println(log + "\t:\t\t\t" + "Nothing was entered: " +ex.getMessage());
-														log++;
-                                       }
-                                 }
-                              }
-                              
-                              comfPinIn = JOptionPane.showInputDialog("Comfirm PIN:");
-                              comfPin = 0;
-                                 
-                              try {
-                                 comfPin = Integer.parseInt(comfPinIn);
-                              }
-                                 catch (NumberFormatException ex) {
-                                    System.out.println(log + "\t:\t\t\t" + "Unable to create PIN as decimal: "+ex.getMessage());
-												log++;
-                                 }
-                                 catch (NullPointerException ex) {
-                                    System.out.println(log + "\t:\t\t\t" + "Nothing was entered: " +ex.getMessage());
-												log++;
-                                 }
-                              
-                              while (specPin != comfPin) {
-                                 System.out.println(log + "\t:\t\t\t" + "Your PINs do NOT MATCH!");
-                                 log++;  	
-                                 specPinIn = JOptionPane.showInputDialog("The PIN entered does NOT Match!!"
-                                       + "\nPlease create a PIN within the range of 1,000 to 9,999"
-                                       + "\nCreate a PIN:");
-                                 specPin = 0;
-                                    
-                                 try {
-                                    specPin = Integer.parseInt(specPinIn);
-                                 }
-                                    catch (NumberFormatException ex) {
-                                       System.out.println(log + "\t:\t\t\t" + "Unable to create PIN as decimal: "+ex.getMessage());
-													log++;
-                                    }
-                                    catch (NullPointerException ex) {
-                                       System.out.println(log + "\t:\t\t\t" + "Nothing was entered: " +ex.getMessage());
-													log++;
-                                    }
-                                 
-                                 while (specPin < 1000) {
-                                    System.out.println(log + "\t:\t\t\t" + "Your PIN is too small! Please choose one from 1,000 to 9,999.");
-                                    log++;  	
-                                    specPinIn = JOptionPane.showInputDialog("PIN is too small!!"
-                                          + "\nPlease create a PIN within the range of 1,000 to 9,999"
-                                          + "\nCreate a PIN:");
-                                    specPin = 0;
-                                    
-                                    try {
-                                       specPin = Integer.parseInt(specPinIn);
-                                    }
-                                       catch (NumberFormatException ex) {
-                                          System.out.println(log + "\t:\t\t\t" + "Unable to create PIN as decimal: "+ex.getMessage());
-														log++;
-                                       }
-                                       catch (NullPointerException ex) {
-                                          System.out.println(log + "\t:\t\t\t" + "Nothing was entered: " +ex.getMessage());
-														log++;
-                                       }
-                                 }
-                                 
-                                 while (specPin > 9999) {
-                                    System.out.println(log + "\t:\t\t\t" + "Your PIN is too big! Please choose one from 1,000 to 9,999.");
-                                    log++;  	
-                                    specPinIn = JOptionPane.showInputDialog("PIN is too big!!"
-                                          + "\nPlease create a PIN within the range of 1,000 to 9,999"
-                                          + "\nCreate a PIN:");
-                                    specPin = 0;
-                                    
-                                    try {
-                                       specPin = Integer.parseInt(specPinIn);
-                                    }
-                                       catch (NumberFormatException ex) {
-                                          System.out.println(log + "\t:\t\t\t" + "Unable to create PIN as decimal: "+ex.getMessage());
-														log++;
-                                       }
-                                       catch (NullPointerException ex) {
-                                          System.out.println(log + "\t:\t\t\t" + "Nothing was entered: " +ex.getMessage());
-														log++;
-                                       }
-                                    while (specPin < 1000) {
-                                       System.out.println(log + "\t:\t\t\t" + "Your PIN is too small! Please choose one from 1,000 to 9,999.");
-                                       log++;  	
-                                       specPinIn = JOptionPane.showInputDialog("PIN is too small!!"
-                                             + "\nPlease create a PIN within the range of 1,000 to 9,999"
-                                             + "\nCreate a PIN:");
-                                       specPin = 0;
-                                    
-                                       try {
-                                          specPin = Integer.parseInt(specPinIn);
-                                       }
-                                          catch (NumberFormatException ex) {
-                                             System.out.println(log + "\t:\t\t\t" + "Unable to create PIN as decimal: "+ex.getMessage());
-															log++;
-                                          }
-                                          catch (NullPointerException ex) {
-                                             System.out.println(log + "\t:\t\t\t" + "Nothing was entered: " +ex.getMessage());
-															log++;
-                                          }
-                                    }
-                                 }
-                                 
-                                 comfPinIn = JOptionPane.showInputDialog("Comfirm PIN:");
-                                 comfPin = 0;
-                                 
-                                 try {
-                                    comfPin = Integer.parseInt(comfPinIn);
-                                 }
-                                    catch (NumberFormatException ex) {
-                                       System.out.println(log + "\t:\t\t\t" + "Unable to create PIN as decimal: "+ex.getMessage());
-													log++;
-                                    }
-                                    catch (NullPointerException ex) {
-                                       System.out.println(log + "\t:\t\t\t" + "Nothing was entered: " +ex.getMessage());
-													log++;
-                                    }
-                              }
-                              
-                              JOptionPane.showMessageDialog(null, "Your PIN was successfully changed!!"
-                                    + "\n\nYour pin is:" + " " + comfPin
-                                    + "\nWrite this down in a safe location! It will not be displayed again!");
-                              
-                              pin = "0000".replaceAll("[0]", "*");
-                              System.out.println(log + "\t:\t\t\t" + "PIN Successfully Changed:" + " " + pin);
-                              log++;
-                           }
-                        }
-                        count++;
-                     }
-                  }
-                  else if (resetPin == JOptionPane.YES_OPTION) {
-                     int resetCount = 0;
-                     System.out.println(log + "\t:\t\t\t" + "Attempting to reset PIN...");
-                     log++;
-                     String resetIn = JOptionPane.showInputDialog("To reset your PIN, enter the sum of the digits of"
-                           + " " + "either account's account number."
-                           + "\nChecking Account Number:" + " " + "237" + chkacctnum1 + chkacctnum2
-                           + chkacctnum3
-                           + "\nRegular Savings Account Number:" + " " + "237" + savacctnum1 + savacctnum2
-                           + savacctnum3
-                        	+ "\n\nNote: 10 unsuccessful attempts to reset will force you to quit game.");
-                     int reset = 0;
-                  	
-                     try {
-                        reset = Integer.parseInt(resetIn);
-                     }
-                        catch (NumberFormatException ex) {
-                           System.out.println(log + "\t:\t\t\t" + "Error: " +ex.getMessage() + " " + "entered!");
-									log++;
-                        }
-                        catch (NullPointerException ex) {
-                           System.out.println(log + "\t:\t\t\t" + "Nothing was entered: " +ex.getMessage());
-									log++;
-                        }
-                     	
-                     System.out.println(log + "\t:\t\t\t" + "Validating Entry...");
-                     log++;
-                     	
-                     int chksum = r1 + r2 + r3 + chkr4 + chkr5 + chkr6 + chkr7 + chkr8 + chkr9 + chkr10
-                           		 + chkr11 + chkr12;
-                     int savsum = r1 + r2 + r3 + savr4 + savr5 + savr6 + savr7 + savr8 + savr9 + savr10
-                           		 + savr11 + savr12;
-                     	
-                     while (reset != chksum && reset != savsum) {
-                        resetIn = JOptionPane.showInputDialog("Try Again!"
-                              + "\n\nTo reset your PIN, enter the sum of the digits of either account's account number."
-                              + "\nChecking Account Number:" + " " + "237" + chkacctnum1 + chkacctnum2
-                              + chkacctnum3
-                              + "\nRegular Savings Account Number:" + " " + "237" + savacctnum1 + savacctnum2
-                              + savacctnum3
-                           	+ "\n\nNote: 10 unsuccessful attempts to reset will force you to quit game.");
-                        reset = 0;
-                     
-                        try {
-                           reset = Integer.parseInt(resetIn);
-                        }
-                           catch (NumberFormatException ex) {
-                              System.out.println(log + "\t:\t\t\t" + "Error: " +ex.getMessage() + " " + "entered!");
-										log++;
-                           }
-                           catch (NullPointerException ex) {
-                              System.out.println(log + "\t:\t\t\t" + "Nothing was entered: " +ex.getMessage());
-										log++;
-                           }
-                        	
-                        System.out.println(log + "\t:\t\t\t" + "Validating Entry...");
-                        log++;
-                        	
-                        if (resetCount == 8) {
-                           JOptionPane.showMessageDialog(null, "Game Over!"
-                                 + "\nYou have had 10 unsuccessful attempts at trying to reset your PIN.", "Game Over!",
-                                 JOptionPane.ERROR_MESSAGE);
-                           System.exit(0);
-                        }
-                        resetCount++;
-                     }
-                     specPinIn = JOptionPane.showInputDialog("Please create a PIN within the range of 1,000 to 9,999"
-                           + "\nCreate a PIN:");
-                     specPin = 0;
-                                    
-                     try {
-                        specPin = Integer.parseInt(specPinIn);
-                     }
-                        catch (NumberFormatException ex) {
-                           System.out.println(log + "\t:\t\t\t" + "Unable to create PIN as decimal: "+ex.getMessage());
-									log++;
-                        }
-                        catch (NullPointerException ex) {
-                           System.out.println(log + "\t:\t\t\t" + "Nothing was entered: " +ex.getMessage());
-									log++;
-                        }
-                              
-                     while (specPin < 1000) {
-                        System.out.println(log + "\t:\t\t\t" + "Your PIN is too small! Please choose one from 1,000 to 9,999.");
-                        log++;  	
-                        specPinIn = JOptionPane.showInputDialog("PIN is too small!!"
-                                       + "\nPlease create a PIN within the range of 1,000 to 9,999"
-                                       + "\nCreate a PIN:");
-                        specPin = 0;
-                                    
-                        try {
-                           specPin = Integer.parseInt(specPinIn);
-                        }
-                           catch (NumberFormatException ex) {
-                              System.out.println(log + "\t:\t\t\t" + "Unable to create PIN as decimal: "+ex.getMessage());
-										log++;
-                           }
-                           catch (NullPointerException ex) {
-                              System.out.println(log + "\t:\t\t\t" + "Nothing was entered: " +ex.getMessage());
-										log++;
-                           }
-                     }
-                              
-                     while (specPin > 9999) {
-                        System.out.println(log + "\t:\t\t\t" + "Your PIN is too big! Please choose one from 1,000 to 9,999.");
-                        log++;  	
-                        specPinIn = JOptionPane.showInputDialog("PIN is too big!!"
-                                       + "\nPlease create a PIN within the range of 1,000 to 9,999"
-                                       + "\nCreate a PIN:");
-                        specPin = 0;
-                                    
-                        try {
-                           specPin = Integer.parseInt(specPinIn);
-                        }
-                           catch (NumberFormatException ex) {
-                              System.out.println(log + "\t:\t\t\t" + "Unable to create PIN as decimal: "+ex.getMessage());
-										log++;
-                           }
-                           catch (NullPointerException ex) {
-                              System.out.println(log + "\t:\t\t\t" + "Nothing was entered: " +ex.getMessage());
-										log++;
-                           }
-                        while (specPin < 1000) {
-                           System.out.println(log + "\t:\t\t\t" + "Your PIN is too small! Please choose one from 1,000 to 9,999.");
-                           log++;  	
-                           specPinIn = JOptionPane.showInputDialog("PIN is too small!!"
-                                 + "\nPlease create a PIN within the range of 1,000 to 9,999"
-                                 + "\nCreate a PIN:");
-                           specPin = 0;
-                                    
-                           try {
-                              specPin = Integer.parseInt(specPinIn);
-                           }
-                              catch (NumberFormatException ex) {
-                                 System.out.println(log + "\t:\t\t\t" + "Unable to create PIN as decimal: "+ex.getMessage());
-											log++;
-                              }
-                              catch (NullPointerException ex) {
-                                 System.out.println(log + "\t:\t\t\t" + "Nothing was entered: " +ex.getMessage());
-											log++;
-                              }
-                        }
-                     }
-                              
-                     comfPinIn = JOptionPane.showInputDialog("Comfirm PIN:");
-                     comfPin = 0;
-                                 
-                     try {
-                        comfPin = Integer.parseInt(comfPinIn);
-                     }
-                        catch (NumberFormatException ex) {
-                           System.out.println(log + "\t:\t\t\t" + "Unable to create PIN as decimal: "+ex.getMessage());
-									log++;
-                        }
-                        catch (NullPointerException ex) {
-                           System.out.println(log + "\t:\t\t\t" + "Nothing was entered: " +ex.getMessage());
-									log++;
-                        }
-                              
-                     while (specPin != comfPin) {
-                        System.out.println(log + "\t:\t\t\t" + "Your PINs do NOT MATCH!");
-                        log++;  	
-                        specPinIn = JOptionPane.showInputDialog("The PIN entered does NOT Match!!"
-                                       + "\nPlease create a PIN within the range of 1,000 to 9,999"
-                                       + "\nCreate a PIN:");
-                        specPin = 0;
-                                    
-                        try {
-                           specPin = Integer.parseInt(specPinIn);
-                        }
-                           catch (NumberFormatException ex) {
-                              System.out.println(log + "\t:\t\t\t" + "Unable to create PIN as decimal: "+ex.getMessage());
-										log++;
-                           }
-                           catch (NullPointerException ex) {
-                              System.out.println(log + "\t:\t\t\t" + "Nothing was entered: " +ex.getMessage());
-										log++;
-                           }
-                        
-                        while (specPin < 1000) {
-                           System.out.println(log + "\t:\t\t\t" + "Your PIN is too small! Please choose one from 1,000 to 9,999.");
-                           log++;  	
-                           specPinIn = JOptionPane.showInputDialog("PIN is too small!!"
-                                       + "\nPlease create a PIN within the range of 1,000 to 9,999"
-                                       + "\nCreate a PIN:");
-                           specPin = 0;
-                                    
-                           try {
-                              specPin = Integer.parseInt(specPinIn);
-                           }
-                              catch (NumberFormatException ex) {
-                                 System.out.println(log + "\t:\t\t\t" + "Unable to create PIN as decimal: "+ex.getMessage());
-											log++;
-                              }
-                              catch (NullPointerException ex) {
-                                 System.out.println(log + "\t:\t\t\t" + "Nothing was entered: " +ex.getMessage());
-											log++;
-                              }
-                        }
-                              
-                        while (specPin > 9999) {
-                           System.out.println(log + "\t:\t\t\t" + "Your PIN is too big! Please choose one from 1,000 to 9,999.");
-                           log++;  	
-                           specPinIn = JOptionPane.showInputDialog("PIN is too big!!"
-                                       + "\nPlease create a PIN within the range of 1,000 to 9,999"
-                                       + "\nCreate a PIN:");
-                           specPin = 0;
-                                    
-                           try {
-                              specPin = Integer.parseInt(specPinIn);
-                           }
-                              catch (NumberFormatException ex) {
-                                 System.out.println(log + "\t:\t\t\t" + "Unable to create PIN as decimal: "+ex.getMessage());
-											log++;
-                              }
-                              catch (NullPointerException ex) {
-                                 System.out.println(log + "\t:\t\t\t" + "Nothing was entered: " +ex.getMessage());
-											log++;
-                              }
-                           while (specPin < 1000) {
-                              System.out.println(log + "\t:\t\t\t" + "Your PIN is too small! Please choose one from 1,000 to 9,999.");
-                              log++;  	
-                              specPinIn = JOptionPane.showInputDialog("PIN is too small!!"
-                                    + "\nPlease create a PIN within the range of 1,000 to 9,999"
-                                    + "\nCreate a PIN:");
-                              specPin = 0;
-                                    
-                              try {
-                                 specPin = Integer.parseInt(specPinIn);
-                              }
-                                 catch (NumberFormatException ex) {
-                                    System.out.println(log + "\t:\t\t\t" + "Unable to create PIN as decimal: "+ex.getMessage());
-												log++;
-                                 }
-                                 catch (NullPointerException ex) {
-                                    System.out.println(log + "\t:\t\t\t" + "Nothing was entered: " +ex.getMessage());
-												log++;
-                                 }
-                           }
-                        }
-                        
-                        comfPinIn = JOptionPane.showInputDialog("Comfirm PIN:");
-                        comfPin = 0;
-                                 
-                        try {
-                           comfPin = Integer.parseInt(comfPinIn);
-                        }
-                           catch (NumberFormatException ex) {
-                              System.out.println(log + "\t:\t\t\t" + "Unable to create PIN as decimal: "+ex.getMessage());
-										log++;
-                           }
-                           catch (NullPointerException ex) {
-                              System.out.println(log + "\t:\t\t\t" + "Nothing was entered: " +ex.getMessage());
-										log++;
-                           }
-                     }
-                     
-                     JOptionPane.showMessageDialog(null, "Your PIN was successfully changed!!"
-                           + "\n\nYour pin is:" + " " + comfPin
-                           + "\nWrite this down in a safe location! It will not be displayed again!");
-                     
-                     pin = "0000".replaceAll("[0]", "*");
-                     System.out.println(log + "\t:\t\t\t" + "PIN Successfully Changed:" + " " + pin);
-                     log++;
-                  }
-                  count++;
-               } 
-               count++;	
-            }
-            System.out.println(log + "\t:\t\t\t" + "PIN Successfully Validated!");         
+            values = resetPIN.reset(log, comfPin, chkacctnum1, chkacctnum2, chkacctnum3, savacctnum1, savacctnum2,
+               	 savacctnum3);
+            comfPin = Integer.parseInt(values[0].toString());
+            log = Integer.parseInt(values[1].toString());      
          
             accountMenu_input = JOptionPane.showInputDialog("Welcome! It is day" + " " + day + "."
                + "\nWhich account would you like to access?"
@@ -1861,7 +365,8 @@
                + "\n\nChecking (237" + chkacctnum1 + chkacctnum2 + chkacctnum3 + " " + ") :: 1"
                + "\nRegular Savings (237" + savacctnum1 + savacctnum2 + savacctnum3 + ") :: 2"
                + "\nMake Transfer :: 3"
-               + "\nLeave Bank :: 4");
+					+ "\nChange PIN :: 4"
+               + "\nLeave Bank :: 5");
             accountMenu = 0;
          	
             try {
@@ -1869,11 +374,11 @@
             }
                catch (NumberFormatException ex) {
                   System.out.println(log + "\t:\t\t\t" + "Unable find transaction ID: "+ex.getMessage());
-						log++;
+                  log++;
                }
                catch (NullPointerException ex) {
                   System.out.println(log + "\t:\t\t\t" + "Nothing was entered: " +ex.getMessage());
-						log++;
+                  log++;
                }
          
             switch (accountMenu) {
@@ -1899,11 +404,11 @@
                   }
                      catch (NumberFormatException ex) {
                         System.out.println(log + "\t:\t\t\t" + "Unable find transaction ID: "+ex.getMessage());
-								log++;
+                        log++;
                      }
                      catch (NullPointerException ex) {
                         System.out.println(log + "\t:\t\t\t" + "Nothing was entered: " +ex.getMessage());
-								log++;
+                        log++;
                      }
                
                   switch (menu) {
@@ -1937,11 +442,11 @@
                            }
                               catch (NumberFormatException ex) {
                                  System.out.println(log + "\t:\t\t\t" + "Error: " +ex.getMessage() + " " + "entered!");
-											log++;
+                                 log++;
                               }
                               catch (NullPointerException ex) {
                                  System.out.println(log + "\t:\t\t\t" + "Nothing was entered: " +ex.getMessage());
-											log++;
+                                 log++;
                               }
                            
                            while (withdraw > balance) {
@@ -1962,11 +467,11 @@
                               }
                                  catch (NumberFormatException ex) {
                                     System.out.println(log + "\t:\t\t\t" + "Error: " +ex.getMessage() + " " + "entered!");
-												log++;
+                                    log++;
                                  }
                                  catch (NullPointerException ex) {
                                     System.out.println(log + "\t:\t\t\t" + "Nothing was entered: " +ex.getMessage());
-												log++;
+                                    log++;
                                  }
                            }
                            
@@ -2023,11 +528,11 @@
                            }
                               catch (NumberFormatException ex) {
                                  System.out.println(log + "\t:\t\t\t" + "Error: " +ex.getMessage() + " " + "entered!");
-											log++;
+                                 log++;
                               }
                               catch (NullPointerException ex) {
                                  System.out.println(log + "\t:\t\t\t" + "Nothing was entered: " +ex.getMessage());
-											log++;
+                                 log++;
                               }
                            
                            while (deposit < 0) {
@@ -2047,11 +552,11 @@
                               }
                                  catch (NumberFormatException ex) {
                                     System.out.println(log + "\t:\t\t\t" + "Error: " +ex.getMessage() + " " + "entered!");
-												log++;
+                                    log++;
                                  }
                                  catch (NullPointerException ex) {
                                     System.out.println(log + "\t:\t\t\t" + "Nothing was entered: " +ex.getMessage());
-												log++;
+                                    log++;
                                  }
                            }
                            while (deposit > cash) {
@@ -2072,11 +577,11 @@
                               }
                                  catch (NumberFormatException ex) {
                                     System.out.println(log + "\t:\t\t\t" + "Error: " +ex.getMessage() + " " + "entered!");
-												log++;
+                                    log++;
                                  }
                                  catch (NullPointerException ex) {
                                     System.out.println(log + "\t:\t\t\t" + "Nothing was entered: " +ex.getMessage());
-												log++;
+                                    log++;
                                  }
                            }
                            
@@ -2184,11 +689,11 @@
                   }
                      catch (NumberFormatException ex) {
                         System.out.println(log + "\t:\t\t\t" + "Unable find transaction ID: "+ex.getMessage());
-								log++;
+                        log++;
                      }
                      catch (NullPointerException ex) {
                         System.out.println(log + "\t:\t\t\t" + "Nothing was entered: " +ex.getMessage());
-								log++;
+                        log++;
                      }
                
                   switch (menuRegSav) {
@@ -2222,11 +727,11 @@
                            }
                               catch (NumberFormatException ex) {
                                  System.out.println(log + "\t:\t\t\t" + "Error: " +ex.getMessage() + " " + "entered!");
-											log++;
+                                 log++;
                               }
                               catch (NullPointerException ex) {
                                  System.out.println(log + "\t:\t\t\t" + "Nothing was entered: " +ex.getMessage());
-											log++;
+                                 log++;
                               }
                            
                            while (withdraw > balanceRegSav) {
@@ -2247,11 +752,11 @@
                               }
                                  catch (NumberFormatException ex) {
                                     System.out.println(log + "\t:\t\t\t" + "Error: " +ex.getMessage() + " " + "entered!");
-												log++;
+                                    log++;
                                  }
                                  catch (NullPointerException ex) {
                                     System.out.println(log + "\t:\t\t\t" + "Nothing was entered: " +ex.getMessage());
-												log++;
+                                    log++;
                                  }
                            }
                            
@@ -2309,11 +814,11 @@
                            }
                               catch (NumberFormatException ex) {
                                  System.out.println(log + "\t:\t\t\t" + "Error: " +ex.getMessage() + " " + "entered!");
-											log++;
+                                 log++;
                               }
                               catch (NullPointerException ex) {
                                  System.out.println(log + "\t:\t\t\t" + "Nothing was entered: " +ex.getMessage());
-											log++;
+                                 log++;
                               }
                            
                            while (deposit < 0) {
@@ -2333,11 +838,11 @@
                               }
                                  catch (NumberFormatException ex) {
                                     System.out.println(log + "\t:\t\t\t" + "Error: " +ex.getMessage() + " " + "entered!");
-												log++;
+                                    log++;
                                  }
                                  catch (NullPointerException ex) {
                                     System.out.println(log + "\t:\t\t\t" + "Nothing was entered: " +ex.getMessage());
-												log++;
+                                    log++;
                                  }
                            }
                            while (deposit > cash) {
@@ -2358,11 +863,11 @@
                               }
                                  catch (NumberFormatException ex) {
                                     System.out.println(log + "\t:\t\t\t" + "Error: " +ex.getMessage() + " " + "entered!");
-												log++;
+                                    log++;
                                  }
                                  catch (NullPointerException ex) {
                                     System.out.println(log + "\t:\t\t\t" + "Nothing was entered: " +ex.getMessage());
-												log++;
+                                    log++;
                                  }
                            }
                            
@@ -2487,11 +992,11 @@
                      }
                         catch (NumberFormatException ex) {
                            System.out.println(log + "\t:\t\t\t" + "Unable find transaction ID: "+ex.getMessage());
-									log++;
+                           log++;
                         }
                         catch (NullPointerException ex) {
                            System.out.println(log + "\t:\t\t\t" + "Nothing was entered: " +ex.getMessage());
-									log++;
+                           log++;
                         }
                      
                      switch (transferMenu) {
@@ -2526,11 +1031,11 @@
                               }
                                  catch (NumberFormatException ex) {
                                     System.out.println(log + "\t:\t\t\t" + "Error: " +ex.getMessage() + " " + "entered!");
-												log++;
+                                    log++;
                                  }
                                  catch (NullPointerException ex) {
                                     System.out.println(log + "\t:\t\t\t" + "Nothing was entered: " +ex.getMessage());
-												log++;
+                                    log++;
                                  }
                                  
                               while (fromChecking > balance) {
@@ -2548,11 +1053,11 @@
                                  }
                                     catch (NumberFormatException ex) {
                                        System.out.println(log + "\t:\t\t\t" + "Error: " +ex.getMessage() + " " + "entered!");
-													log++;
+                                       log++;
                                     }
                                     catch (NullPointerException ex) {
                                        System.out.println(log + "\t:\t\t\t" + "Nothing was entered: " +ex.getMessage());
-													log++;
+                                       log++;
                                     }
                               }
                            	
@@ -2615,11 +1120,11 @@
                               }
                                  catch (NumberFormatException ex) {
                                     System.out.println(log + "\t:\t\t\t" + "Error: " +ex.getMessage() + " " + "entered!");
-												log++;
+                                    log++;
                                  }
                                  catch (NullPointerException ex) {
                                     System.out.println(log + "\t:\t\t\t" + "Nothing was entered: " +ex.getMessage());
-												log++;
+                                    log++;
                                  }
                                  
                               while (fromRegSav > balanceRegSav) {
@@ -2637,11 +1142,11 @@
                                  }
                                     catch (NumberFormatException ex) {
                                        System.out.println(log + "\t:\t\t\t" + "Error: " +ex.getMessage() + " " + "entered!");
-													log++;
+                                       log++;
                                     }
                                     catch (NullPointerException ex) {
                                        System.out.println(log + "\t:\t\t\t" + "Nothing was entered: " +ex.getMessage());
-													log++;
+                                       log++;
                                     }
                               }
                               balanceRegSav -= fromRegSav;
@@ -2667,7 +1172,7 @@
                                        + String.format("%.2f", balanceRegSav) + "."
                                        + "\nYour new checking account balance is" + " "
                                        + "$"+ String.format("%.2f", balance) + "."
-													+ "\nIt is now day" + " " + day + ".",
+                                 		+ "\nIt is now day" + " " + day + ".",
                                        "Regular Savings -" + " " + "(237" + savacctnum1 + savacctnum2
                                  		+ savacctnum3 + ")", JOptionPane.INFORMATION_MESSAGE);
                            }
@@ -2705,6 +1210,26 @@
                   }
                   break;
                case 4:
+                  JOptionPane.showMessageDialog(null, "You have chosen to reset your PIN", "Reset PIN",
+                                 JOptionPane.WARNING_MESSAGE);
+                           
+                  confirm = JOptionPane.showConfirmDialog(null, "Are you sure?"
+						 + "\n\nNote: You have 10 tries to get sum correct. Once you incorrectly input the sum 10 times you will"
+						 + "be forced to quit the game.", "Reset PIN",
+                              JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+                  if (confirm == JOptionPane.NO_OPTION) {
+                     System.out.println(log + "\t:\t\t\t" + "You have chosen to leave your PIN the same.");
+                     log++;
+                     JOptionPane.showMessageDialog(null, "Your PIN will NOT be changed.");
+                  }
+                  else if (confirm == JOptionPane.YES_OPTION) {
+                     values = change.PIN(log, comfPin, chkacctnum1, chkacctnum2, chkacctnum3, savacctnum1, savacctnum2,
+                        savacctnum3);
+                     comfPin = Integer.parseInt(values[0].toString());
+                     log = Integer.parseInt(values[1].toString());
+                  }
+                  break;
+               case 5:
                   JOptionPane.showMessageDialog(null, "Leaving so soon?", "Leave?",
                                  JOptionPane.WARNING_MESSAGE);
                            
